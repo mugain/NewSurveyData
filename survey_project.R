@@ -26,8 +26,10 @@ ggsave("figures/figure1.pdf")
 # make box plot to compare weight disribution of different sexes
 select(surveys, species_id, sex, weight)
 ggplot(data=surveys, aes(x=sex, y=weight)) + geom_boxplot()
+ggsave()
 # make scater plot of weight distribution of the rodent species
 ggplot(data=surveys, aes(x=weight, y=species)) +geom_point()
+ggsave()
 # preform anova test of corrilation of weight to species
 fit <- aov(weight ~ species_id, data=surveys)
 summary(fit)
